@@ -67,6 +67,7 @@ namespace SafeVault.Areas.Identity.Pages.Account
             /// I fixed this, it was Email in the original code, but it should be Username.
             /// <remarks>It was changed to Username to match the IdentityUser class.</remarks>
             [Required]
+            [RegularExpression(@"^[a-zA-Z0-9_]+$", ErrorMessage = "Invalid characters.")]
             [Display(Name = "Username")]
             public string Username { get; set; }
 

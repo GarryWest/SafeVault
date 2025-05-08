@@ -68,4 +68,13 @@ app.MapControllerRoute(
 
 app.MapRazorPages(); // Enables Identity UI routing
 
+// Add Content Security Policy middleware
+// This is a simple example. You may want to customize the CSP based on your needs.
+app.Use(async (context, next) =>
+{
+    context.Response.Headers.Append("Content-Security-Policy", "default-src 'self'; script-src 'self'");
+    await next();
+});
+
+
 app.Run();
